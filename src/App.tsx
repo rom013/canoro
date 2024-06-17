@@ -9,6 +9,7 @@ import target from "./assets/image/target.png"
 import gear from "./assets/image/gear.png"
 import eye from "./assets/image/eye.png"
 import { infoAbout } from "./interfaces/infoAbout.interface";
+import StatsNumber from "./components/cards/statsNumber";
 
 export default function App() {
 
@@ -58,7 +59,7 @@ export default function App() {
         </section>
 
         <section
-          className="py-16 px-10 max-w-screen-xl mx-auto flex gap-5 md:justify-between flex-wrap justify-center"
+          className="pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 md:justify-between flex-wrap justify-center"
         >
           {
             infosAbout.map((info, index) => {
@@ -73,6 +74,33 @@ export default function App() {
             })
           }
         </section>
+
+        <section className="pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 md:justify-between flex-wrap justify-center">
+          <div className="space-y-6 max-w-96">
+            <h3 className="font-lato font-semibold text-2xl">Construindo bons momentos</h3>
+            <p className="font-lato text-sm leading-relaxed text-zinc-500">Tudo que você precisa para a viagem perfeita. Há mais de 10 anos no mercado de turismo, a Canoro já alcançou resultados notáveis, proporcionando experiências inesquecíveis para viajantes ao redor do mundo.</p>
+          </div>
+
+          <div className="flex flex-wrap max-w-xl gap-5 justify-center">
+            <StatsNumber
+              numberStats="1.2M+"
+              description="Clientes atendidos"
+            />
+            <StatsNumber
+              numberStats="500+"
+              description="Destinos cobertos"
+            />
+            <StatsNumber
+              numberStats="10k"
+              description="Parcerias"
+            />
+            <StatsNumber
+              numberStats="2.5M+"
+              description="Reservas realizadas"
+            />
+          </div>
+        </section>
+
       </main>
     </>
   )
