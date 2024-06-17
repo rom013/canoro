@@ -1,6 +1,7 @@
 import Logo from "../assets/image/logo_canoro_full.svg"
+import LogoIco from "../assets/image/logo_ico.svg"
 import { routes } from "../interfaces/routes.interface"
-import SearchHeader from "./searchHeader"
+import NavigationMenu from "./navigationMenu"
 
 export default function Header() {
 
@@ -30,30 +31,20 @@ export default function Header() {
                 <img
                     alt="Canoro"
                     src={Logo}
-                    className="text-white text-4xl"
+                    className="text-white text-4xl hidden sm:block"
+                    draggable={false}
+                />
+                <img
+                    alt="Canoro"
+                    src={LogoIco}
+                    className="text-white text-2xl w-8 sm:hidden block"
                     draggable={false}
                 />
 
 
-                <nav
-                    className="text-white flex gap-8 items-center"
-                >
-                    {
-                        routes.map((route, index) => {
-                            return (
-                                <a
-                                    href={route.path}
-                                    className="text-lg"
-                                    key={index}
-                                >
-                                    {route.name}
-                                </a>
-                            )
-                        })
-                    }
-
-                    <SearchHeader />
-                </nav>
+                <NavigationMenu
+                    routes={routes}
+                />
             </div>
         </header>
     )

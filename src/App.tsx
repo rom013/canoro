@@ -45,7 +45,7 @@ export default function App() {
           <VideoPlayer src={Video} />
 
           <div
-            className="absolute inset-0 bg-black/40 flex flex-col gap-2 items-center justify-center"
+            className="absolute inset-0 bg-black/40 flex flex-col gap-2 items-center justify-center px-10"
           >
             <img
               alt="Canoro"
@@ -53,12 +53,12 @@ export default function App() {
               className="text-white text-4xl"
               draggable={false}
             />
-            <p className="text-white text-2xl font-lato font-[300]">Descubra um lugar lindo conosco</p>
+            <p className="text-white text-2xl font-lato font-[300] text-center">Descubra um lugar lindo conosco</p>
           </div>
         </section>
 
         <section
-          className="py-16 px-10 max-w-screen-xl mx-auto flex gap-5 justify-between"
+          className="py-16 px-10 max-w-screen-xl mx-auto flex gap-5 md:justify-between flex-wrap justify-center"
         >
           {
             infosAbout.map((info, index) => {
