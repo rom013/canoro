@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 .clip {
+  animation: test 10s linear;
   clip-path: polygon(0 0, 100% 0%, 100% 75%, 50% 100%, 0 75%);
 }
 
 .center-element {
   @apply left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2;
+}
+
+@keyframes test {
+  0% {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0%, 100% 75%, 50% 100%, 0 75%);
+  }
 }

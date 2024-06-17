@@ -30,6 +30,7 @@ export default function Header() {
                     alt="Canoro"
                     src={Logo}
                     className="text-white text-4xl"
+                    draggable={false}
                 />
 
 

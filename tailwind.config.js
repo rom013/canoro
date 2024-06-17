@@ -5,6 +5,10 @@ export default {
     extend: {
       colors: {
         "blue-canoro": "#0D7CE9"
+      },
+      fontFamily: {
+        "lato": "'Lato', sans-serif",
+        "sora": "'Sora', sans-serif"
       }
     },
   },
