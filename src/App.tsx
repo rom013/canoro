@@ -8,10 +8,11 @@ import megaphone from "./assets/image/megaphone.png"
 import target from "./assets/image/target.png"
 import gear from "./assets/image/gear.png"
 import eye from "./assets/image/eye.png"
+import { infoAbout } from "./interfaces/infoAbout.interface";
 
 export default function App() {
 
-  const infosAbout = [
+  const infosAbout: readonly infoAbout[] = [
     {
       image: megaphone,
       title: "Sobre nós",

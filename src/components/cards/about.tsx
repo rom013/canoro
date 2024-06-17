@@ -1,9 +1,4 @@
-
-interface propsCardAbout {
-    img: string,
-    title: string,
-    description: string,
-}
+import { propsCardAbout } from "../../interfaces/propsCardAbout.interface";
 
 export function CardAbout({ img, title, description }: propsCardAbout) {
     return (

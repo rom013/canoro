@@ -1,9 +1,10 @@
 import Logo from "../assets/image/logo_canoro_full.svg"
+import { routes } from "../interfaces/routes.interface"
 import SearchHeader from "./searchHeader"
 
 export default function Header() {
 
-    const routes = [
+    const routes: readonly routes[] = [
         {
             name: "Home",
             path: "/"
