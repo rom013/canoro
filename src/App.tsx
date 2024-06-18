@@ -11,6 +11,8 @@ import eye from "./assets/image/eye.png"
 import { infoAbout } from "./interfaces/infoAbout.interface";
 import StatsNumber from "./components/cards/statsNumber";
 
+import { motion, transform, useMotionValueEvent, useScroll } from "framer-motion";
+
 export default function App() {
 
   const infosAbout: readonly infoAbout[] = [
@@ -46,19 +48,29 @@ export default function App() {
           <VideoPlayer src={Video} />
 
           <div
-            className="absolute inset-0 bg-black/40 flex flex-col gap-2 items-center justify-center px-10"
+            className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center px-10"
           >
-            <img
-              alt="Canoro"
-              src={Logo}
-              className="text-white text-4xl"
-              draggable={false}
-            />
-            <p className="text-white text-2xl font-lato font-[300] text-center">Descubra um lugar lindo conosco</p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center flex-col gap-2"
+            >
+              <img
+                alt="Canoro"
+                src={Logo}
+                className="text-white text-4xl"
+                draggable={false}
+              />
+              <p className="text-white text-2xl font-lato font-[300] text-center">Descubra um lugar lindo conosco</p>
+            </motion.div>
           </div>
         </section>
 
-        <section
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: .7 }}
           className="pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 md:justify-between flex-wrap justify-center"
         >
           {
@@ -73,7 +85,7 @@ export default function App() {
               )
             })
           }
-        </section>
+        </motion.section>
 
         <section className="pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 md:justify-between flex-wrap justify-center">
           <div className="space-y-6 max-w-96">
