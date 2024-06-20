@@ -8,7 +8,8 @@ export default {
       },
       fontFamily: {
         "lato": "'Lato', sans-serif",
-        "sora": "'Sora', sans-serif"
+        "sora": "'Sora', sans-serif",
+        "barlow": "'Barlow Condensed', sans-serif",
       }
     },
   },

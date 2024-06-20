@@ -19,6 +19,10 @@
   text-fill-color: transparent;
 }
 
+.container {
+  @apply pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 lg:justify-between flex-wrap justify-center;
+}
+
 @keyframes test {
   0% {
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 100%, 0 100%);

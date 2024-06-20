@@ -12,6 +12,7 @@ import { infoAbout } from "./interfaces/infoAbout.interface";
 import StatsNumber from "./components/cards/statsNumber";
 
 import { motion } from "framer-motion";
+import { LocalCard } from "./components/cards/localCard";
 
 export default function App() {
 
@@ -71,7 +72,7 @@ export default function App() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: .7 }}
-          className="pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 lg:justify-between flex-wrap justify-center"
+          className="container"
         >
           {
             infosAbout.map((info, index) => {
@@ -87,7 +88,7 @@ export default function App() {
           }
         </motion.section>
 
-        <section className="pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 lg:justify-between flex-wrap justify-center">
+        <section className="container">
           <div className="space-y-6 max-w-96">
             <h3 className="font-lato font-semibold text-2xl">Construindo bons momentos</h3>
             <p className="font-lato text-sm leading-relaxed text-zinc-500">Tudo que você precisa para a viagem perfeita. Há mais de 10 anos no mercado de turismo, a Canoro já alcançou resultados notáveis, proporcionando experiências inesquecíveis para viajantes ao redor do mundo.</p>
@@ -111,6 +112,41 @@ export default function App() {
               description="Reservas realizadas"
             />
           </div>
+        </section>
+
+        <section className="container">
+          <div
+            className="w-full flex justify-between items-center"
+          >
+            <h3
+              className="font-lato font-semibold text-2xl"
+            >
+              Explore destinos mais populares
+            </h3>
+            <button
+              className="rounded-full border-blue-canoro border-2 hover:bg-blue-canoro hover:text-white transition-all duration-300 flex justify-center items-center px-4 py-2 font-lato text-sm"
+            >
+              Ver mais
+            </button>
+          </div>
+
+          <div>
+            <LocalCard
+              img="https://lumiere-a.akamaihd.net/v1/images/darth-vader-main_4560aff7.jpeg"
+              title="Test Dart Vaider"
+              subtitle="star wars"
+            >
+              <LocalCard.LocalEvaluationAndPrices
+                average={2}
+                price={44.02}
+              />
+
+              <LocalCard.LocalTag
+                description="20% de desconto"
+              />
+            </LocalCard>
+          </div>
+
         </section>
 
       </main>
