@@ -1,0 +1,87 @@
+{
+    "destinationsPopupar": [
+        {
+            "img": "https://images.pexels.com/photos/2067057/pexels-photo-2067057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "local": "Toquio",
+            "country": "Tokyo, Japão",
+            "price": 5023.22,
+            "average": 5
+        },
+        {
+            "img": "https://images.pexels.com/photos/20771084/pexels-photo-20771084/free-photo-of-cars-on-street-near-eiffel-tower-in-paris-france.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "local": "Paris",
+            "country": "Paris, França",
+            "price": 4000.00,
+            "average": 4,
+            "tag": "15% de desconto"
+        },
+        {
+            "img": "https://familytripmagazine.com.br/wp-content/uploads/2022/11/shutterstock_1450907705-scaled-e1667869422159.jpg",
+            "local": "Chapada Diamantina",
+            "country": "Bahia, Brasil",
+            "price": 4000.00,
+            "average": 4
+        },
+        {
+            "img": "https://www.cnnbrasil.com.br/viagemegastronomia/wp-content/uploads/sites/5/2021/05/cataratas.jpg?w=1200&h=900&crop=1",
+            "local": "Cataratas do Iguaçu",
+            "country": "Paraná, Brasil",
+            "price": 4000.00,
+            "average": 4
+        },
+        {
+            "img": "https://images.pexels.com/photos/18498510/pexels-photo-18498510/free-photo-of-times-square-in-new-york.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "local": "Nova Iorque",
+            "country": "New York, EUA",
+            "price": 6000.50,
+            "average": 5
+        },
+        {
+            "img": "https://images.pexels.com/photos/3629813/pexels-photo-3629813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "local": "Moscou",
+            "country": "Moscow, Rússia",
+            "price": 5200.20,
+            "average": 4,
+            "tag": "40% de desconto"
+        }
+    ],
+    "packageTravel": [
+        {
+            "img": "https://images.pexels.com/photos/3411135/pexels-photo-3411135.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "local": "Disney",
+            "country": "Orlando, EUA",
+            "price": 2023.22,
+            "average": 5
+        },
+        {
+            "img": "https://imgmd.net/images/v1/guia/1684028/lencois-maranhenses-220-c.jpg",
+            "local": "Lençóis Maranhenses",
+            "country": "Maranhão, BR",
+            "price": 2023.22,
+            "average": 4,
+            "tag": "15% de desconto"
+        },
+        {
+            "img": "https://res.cloudinary.com/worldpackers/image/upload/c_limit,f_auto,q_auto,w_1140/dnghnbiw07fu1fxwky9x",
+            "local": "Dunas Jalapão",
+            "country": "Tocantins, BR",
+            "price": 2023.22,
+            "average": 4
+        },
+        {
+            "img": "https://s2.glbimg.com/1NqTrdukaHaNY2ZGKqaSkb2dnO4=/e.glbimg.com/og/ed/f/original/2021/08/02/gettyimages-1208124099.jpg",
+            "local": "Toquio",
+            "country": "Toquio, Japão",
+            "price": 2023.22,
+            "average": 4
+        },
+        {
+            "img": "https://www.civitatis.com/blog/wp-content/uploads/2022/12/paisajes-desierto-atacama-chile-1920x1120.jpg",
+            "local": "Deserto Atacama",
+            "country": "Atacama, Chile",
+            "price": 2023.22,
+            "average": 4,
+            "tag": "40% de desconto"
+        }
+    ]
+}

@@ -14,8 +14,34 @@ import StatsNumber from "./components/cards/statsNumber";
 import { motion } from "framer-motion";
 import { LocalCard } from "./components/cards/localCard";
 import Footer from "./components/footer";
+import { useEffect, useState } from "react";
+
+interface responseLocation {
+  img: string
+  local: string
+  country: string
+  price: number
+  average: number
+  tag?: string
+  id: string
+}
 
 export default function App() {
+
+  const [locationsPopular, setLocations] = useState<Array<responseLocation>>([])
+  const [packageTravel, setPackageTravel] = useState<Array<responseLocation>>([])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/destinationsPopupar")
+      .then(res => res.json())
+      .then(res => setLocations(res))
+
+    fetch("http://localhost:3000/packageTravel")
+      .then(res => res.json())
+      .then(res => setPackageTravel(res))
+
+
+  }, [])
 
   const infosAbout: readonly infoAbout[] = [
     {
@@ -37,43 +63,6 @@ export default function App() {
       image: eye,
       title: "Nossa Visão",
       description: "A Canoro busca ser o parceiro confiável em todas as suas aventuras, sempre expandindo serviços e integrando novas tecnologias para enriquecer a experiência de viagem."
-    },
-  ]
-
-  const localtions = [
-    {
-      id: 1,
-      img: "https://images.pexels.com/photos/2067057/pexels-photo-2067057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      local: "Toquio",
-      country: "Tokyo, Japão",
-      price: 5023.22,
-      average: 5,
-    },
-    {
-      id: 2,
-      img: "https://images.pexels.com/photos/20771084/pexels-photo-20771084/free-photo-of-cars-on-street-near-eiffel-tower-in-paris-france.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      local: "Paris",
-      country: "Paris, França",
-      price: 4000.00,
-      average: 4,
-      tag: "15% de desconto"
-    },
-    {
-      id: 3,
-      img: "https://images.pexels.com/photos/18498510/pexels-photo-18498510/free-photo-of-times-square-in-new-york.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      local: "Nova Iorque",
-      country: "New York, EUA",
-      price: 6000.50,
-      average: 5,
-    },
-    {
-      id: 4,
-      img: "https://images.pexels.com/photos/3629813/pexels-photo-3629813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      local: "Moscou",
-      country: "Moscow, Rússia",
-      price: 5200.20,
-      average: 4,
-      tag: "40% de desconto"
     },
   ]
 
@@ -173,7 +162,7 @@ export default function App() {
             className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
           >
             {
-              localtions.map((local) => {
+              locationsPopular.map((local) => {
                 return (
                   <LocalCard
                     key={local.id}
@@ -219,7 +208,7 @@ export default function App() {
             className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
           >
             {
-              localtions.map(local => {
+              packageTravel.map(local => {
                 return (
                   <LocalCard
                     key={local.id}
