@@ -1,6 +1,6 @@
-import Logo from "../assets/image/logo_canoro_full.svg"
-import LogoIco from "../assets/image/logo_ico.svg"
+import { useWindowScrollY, useWindowWidth } from "../hook/useWindow"
 import { routes } from "../interfaces/routes.interface"
+import { SvgLogoFull, SvgLogoIco } from "./imageLogo"
 import NavigationMenu from "./navigationMenu"
 
 export default function Header() {
@@ -20,27 +20,24 @@ export default function Header() {
         },
     ]
 
+    const windowScrollY = useWindowScrollY()
+    const windowWidth = useWindowWidth()
+
+    const isScreenMobile = windowWidth < 640
+    const isScrolled = windowScrollY > 700
 
     return (
         <header
-            className="fixed top-10 w-full z-50"
+            className={`fixed top-10 w-full z-50 transition-all ${isScrolled && "bg-white top-0 py-10 shadow-md shadow-blue-canoro/5"}`}
         >
             <div
                 className="max-w-screen-xl w-full mx-auto flex justify-between items-center px-10"
             >
-                <img
-                    alt="Canoro"
-                    src={Logo}
-                    className="text-white text-4xl hidden sm:block"
-                    draggable={false}
-                />
-                <img
-                    alt="Canoro"
-                    src={LogoIco}
-                    className="text-white text-2xl w-8 sm:hidden block active:rotate-45 transition-all duration-300"
-                    draggable={false}
-                />
-
+                {
+                    isScreenMobile
+                        ? <SvgLogoIco />
+                        : <SvgLogoFull colorMain={isScrolled ? "black" : "white"} />
+                }
 
                 <NavigationMenu
                     routes={routes}

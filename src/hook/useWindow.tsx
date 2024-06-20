@@ -35,3 +35,21 @@ export function useWindowHeight() {
 
   return windowHeight;
 }
+
+export function useWindowScrollY() {
+  const [windowScrollY, setWindowScrollY] = useState(window.scrollY)
+
+  useEffect(() => {
+    function handleScroll() {
+      setWindowScrollY(window.scrollY)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  return windowScrollY
+}

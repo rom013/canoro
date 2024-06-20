@@ -1,5 +1,5 @@
 import { List, X } from "@phosphor-icons/react"
-import { useWindowWidth } from "../hook/useWindow"
+import { useWindowScrollY, useWindowWidth } from "../hook/useWindow"
 import { routes } from "../interfaces/routes.interface"
 import SearchHeader from "./searchHeader"
 import { useState } from "react"
@@ -12,10 +12,16 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
 
     const [isOpen, setIsOpen] = useState(false)
 
+    const windowWidth = useWindowWidth()
+    const windowScrollY = useWindowScrollY()
+
+    const isScreenMobile = windowWidth < 640
+    const isScrolled = windowScrollY > 700
+
     return (
         <>
             {
-                useWindowWidth() < 640
+                isScreenMobile
                     ? <>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -49,7 +55,7 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
                         }
                     </>
                     : <nav
-                        className="text-white flex gap-8 items-center"
+                        className={`${isScrolled ? "text-black" : "text-white"} flex gap-8 items-center`}
                     >
                         {
                             routes.map((route, index) => {

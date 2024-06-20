@@ -15,7 +15,7 @@ export default function SearchHeader() {
                 placeholder="Pesquisa"
             />
             <button
-                className="pointer-events-none absolute center-element group-valid:text-blue-canoro group-valid:left-4 group-focus-within:text-blue-canoro group-focus-within:left-4"
+                className="pointer-events-none absolute text-white center-element group-valid:text-blue-canoro group-valid:left-4 group-focus-within:text-blue-canoro group-focus-within:left-4"
             >
                 <MagnifyingGlass
                     size={18}
