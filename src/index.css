@@ -23,6 +23,10 @@
   @apply pt-16 px-10 max-w-screen-xl mx-auto flex gap-5 lg:justify-between flex-wrap justify-center;
 }
 
+.bar-title {
+  @apply after:h-6 after:bg-blue-canoro after:block after:w-1 after:absolute after:-left-3  after:top-1 relative;
+}
+
 @keyframes test {
   0% {
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 100%, 0 100%);

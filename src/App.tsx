@@ -129,7 +129,7 @@ export default function App() {
 
         <section className="container">
           <div className="space-y-6 max-w-96">
-            <h3 className="font-lato font-semibold text-2xl">Construindo bons momentos</h3>
+            <h3 className="font-lato font-semibold text-2xl bar-title">Construindo bons momentos</h3>
             <p className="font-lato text-sm leading-relaxed text-zinc-500">Tudo que você precisa para a viagem perfeita. Há mais de 10 anos no mercado de turismo, a Canoro já alcançou resultados notáveis, proporcionando experiências inesquecíveis para viajantes ao redor do mundo.</p>
           </div>
 
@@ -158,7 +158,7 @@ export default function App() {
             className="w-full flex px-10 md:flex-row flex-col justify-between md:items-center gap-3"
           >
             <h3
-              className="font-lato font-semibold text-2xl"
+              className="font-lato font-semibold text-2xl bar-title"
             >
               Explore destinos mais populares
             </h3>
@@ -204,7 +204,7 @@ export default function App() {
             className="w-full flex px-10 md:flex-row flex-col justify-between md:items-center gap-3"
           >
             <h3
-              className="font-lato font-semibold text-2xl"
+              className="font-lato font-semibold text-2xl bar-title"
             >
               Pacotes de viagem
             </h3>

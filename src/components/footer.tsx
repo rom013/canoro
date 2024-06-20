@@ -25,7 +25,7 @@ export default function Footer() {
                     >
                         <div className="space-y-4">
                             <h3
-                                className="text-2xl font-semibold"
+                                className="text-2xl font-semibold bar-title"
                             >
                                 Newsletter
                             </h3>
@@ -58,7 +58,7 @@ export default function Footer() {
                         className="max-w-96 text-white font-lato space-y-4"
                     >
                         <h3
-                            className="text-2xl font-semibold"
+                            className="text-2xl font-semibold bar-title"
                         >
                             Contatos
                         </h3>
