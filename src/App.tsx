@@ -148,9 +148,9 @@ export default function App() {
           </div>
         </section>
 
-        <section className="container">
+        <section className="container !px-0">
           <div
-            className="w-full flex justify-between items-center"
+            className="w-full flex px-10 md:flex-row flex-col justify-between md:items-center gap-3"
           >
             <h3
               className="font-lato font-semibold text-2xl"
@@ -158,14 +158,14 @@ export default function App() {
               Explore destinos mais populares
             </h3>
             <button
-              className="rounded-full border-blue-canoro border-2 hover:bg-blue-canoro hover:text-white transition-all duration-300 flex justify-center items-center px-4 py-2 font-lato text-sm"
+              className="w-fit rounded-full border-blue-canoro border-2 hover:md:bg-blue-canoro active:bg-blue-canoro active:text-white hover:md:text-white transition-all duration-300 flex justify-center items-center px-4 py-2 font-lato text-sm"
             >
               Ver mais
             </button>
           </div>
 
           <div
-            className="w-full flex gap-5 justify-between"
+            className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
           >
             {
               localtions.map((local, index) => {
@@ -196,9 +196,9 @@ export default function App() {
 
         </section>
 
-        <section className="container">
+        <section className="container !px-0">
           <div
-            className="w-full flex justify-between items-center"
+            className="w-full flex px-10 md:flex-row flex-col justify-between md:items-center gap-3"
           >
             <h3
               className="font-lato font-semibold text-2xl"
@@ -206,14 +206,14 @@ export default function App() {
               Pacotes de viagem
             </h3>
             <button
-              className="rounded-full border-blue-canoro border-2 hover:bg-blue-canoro hover:text-white transition-all duration-300 flex justify-center items-center px-4 py-2 font-lato text-sm"
+              className="w-fit rounded-full border-blue-canoro border-2 hover:bg-blue-canoro hover:text-white transition-all duration-300 flex justify-center items-center px-4 py-2 font-lato text-sm"
             >
               Ver mais
             </button>
           </div>
 
           <div
-            className="w-full flex gap-5 justify-between"
+            className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
           >
             {
               localtions.map((local, index) => {

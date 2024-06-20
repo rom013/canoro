@@ -113,7 +113,7 @@ function LocalTag({ description }: localTagProps) {
 
     return (
         <span
-            className={`rounded py-2 px-4 text-sm text-white w-fit bg-blue-canoro`}
+            className={`rounded-tl-xl rounded-br-xl rounded-tr rounded-bl py-2 px-4 text-sm text-white w-fit bg-blue-canoro`}
         >
             {
                 description

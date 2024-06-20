@@ -37,7 +37,7 @@ export default function Header() {
                 <img
                     alt="Canoro"
                     src={LogoIco}
-                    className="text-white text-2xl w-8 sm:hidden block"
+                    className="text-white text-2xl w-8 sm:hidden block active:rotate-45 transition-all duration-300"
                     draggable={false}
                 />
 
