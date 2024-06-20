@@ -4,8 +4,8 @@ import { ReactNode } from "react"
 interface localCardProps {
     children?: ReactNode
     img: string
-    title: string
-    subtitle?: string
+    local: string
+    country?: string
 }
 
 interface evaluationAndPricesProps {
@@ -17,7 +17,7 @@ interface localTagProps {
     description: string
 }
 
-function LocalCard({ children, img, title, subtitle }: localCardProps) {
+function LocalCard({ children, img, local: title, country: subtitle }: localCardProps) {
     return (
         <div
             className="cursor-pointer flex flex-col gap-3"
@@ -26,7 +26,7 @@ function LocalCard({ children, img, title, subtitle }: localCardProps) {
                 className="relative h-80 w-64 rounded-lg overflow-hidden group"
             >
                 <img
-                    className="size-full object-cover from-black to-transparent group-hover:scale-110 transition-all duration-300"
+                    className="size-full object-cover group-hover:scale-110 transition-all duration-300"
                     src={img}
                     alt={title}
                 />
@@ -45,7 +45,7 @@ function LocalCard({ children, img, title, subtitle }: localCardProps) {
                     }
                 </div>
                 <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-black to-transparent group-hover:from-black/80"
                 />
             </section>
             <footer

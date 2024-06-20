@@ -39,6 +39,40 @@ export default function App() {
     },
   ]
 
+  const localtions = [
+    {
+      img: "https://images.pexels.com/photos/2067057/pexels-photo-2067057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      local: "Toquio",
+      country: "Tokyo, Japão",
+      price: 5023.22,
+      average: 5,
+    },
+    {
+      img: "https://images.pexels.com/photos/20771084/pexels-photo-20771084/free-photo-of-cars-on-street-near-eiffel-tower-in-paris-france.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      local: "Paris",
+      country: "Paris, França",
+      price: 4000.00,
+      average: 4,
+      tag: "15% de desconto"
+    },
+    {
+      img: "https://images.pexels.com/photos/18498510/pexels-photo-18498510/free-photo-of-times-square-in-new-york.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      local: "Nova Iorque",
+      country: "New York, EUA",
+      price: 6000.50,
+      average: 5,
+    },
+    {
+      img: "https://images.pexels.com/photos/3629813/pexels-photo-3629813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      local: "Moscou",
+      country: "Moscow, Rússia",
+      price: 5200.20,
+      average: 4,
+      tag: "40% de desconto"
+    },
+  ]
+
+
   return (
     <>
       <Header />
@@ -130,21 +164,82 @@ export default function App() {
             </button>
           </div>
 
-          <div>
-            <LocalCard
-              img="https://lumiere-a.akamaihd.net/v1/images/darth-vader-main_4560aff7.jpeg"
-              title="Test Dart Vaider"
-              subtitle="star wars"
-            >
-              <LocalCard.LocalEvaluationAndPrices
-                average={2}
-                price={44.02}
-              />
+          <div
+            className="w-full flex gap-5 justify-between"
+          >
+            {
+              localtions.map((local, index) => {
+                return (
+                  <LocalCard
+                    key={index}
+                    img={local.img}
+                    local={local.local}
+                    country={local.country}
+                  >
+                    <LocalCard.LocalEvaluationAndPrices
+                      key={index}
+                      average={local.average}
+                      price={local.price}
+                    />
+                    {
+                      local.tag && <LocalCard.LocalTag
+                        key={index}
+                        description={local.tag}
+                      />
+                    }
 
-              <LocalCard.LocalTag
-                description="20% de desconto"
-              />
-            </LocalCard>
+                  </LocalCard>
+                )
+              })
+            }
+          </div>
+
+        </section>
+
+        <section className="container">
+          <div
+            className="w-full flex justify-between items-center"
+          >
+            <h3
+              className="font-lato font-semibold text-2xl"
+            >
+              Pacotes de viagem
+            </h3>
+            <button
+              className="rounded-full border-blue-canoro border-2 hover:bg-blue-canoro hover:text-white transition-all duration-300 flex justify-center items-center px-4 py-2 font-lato text-sm"
+            >
+              Ver mais
+            </button>
+          </div>
+
+          <div
+            className="w-full flex gap-5 justify-between"
+          >
+            {
+              localtions.map((local, index) => {
+                return (
+                  <LocalCard
+                    key={index}
+                    img={local.img}
+                    local={local.local}
+                    country={local.country}
+                  >
+                    <LocalCard.LocalEvaluationAndPrices
+                      key={index}
+                      average={local.average}
+                      price={local.price}
+                    />
+                    {
+                      local.tag && <LocalCard.LocalTag
+                        key={index}
+                        description={local.tag}
+                      />
+                    }
+
+                  </LocalCard>
+                )
+              })
+            }
           </div>
 
         </section>
