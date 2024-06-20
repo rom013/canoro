@@ -1,5 +1,5 @@
 import { List, X } from "@phosphor-icons/react"
-import { useWindowWidth } from "../hook/useWindowWidth"
+import { useWindowWidth } from "../hook/useWindow"
 import { routes } from "../interfaces/routes.interface"
 import SearchHeader from "./searchHeader"
 import { useState } from "react"
