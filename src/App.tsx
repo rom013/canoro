@@ -13,6 +13,7 @@ import StatsNumber from "./components/cards/statsNumber";
 
 import { motion } from "framer-motion";
 import { LocalCard } from "./components/cards/localCard";
+import Footer from "./components/footer";
 
 export default function App() {
 
@@ -41,6 +42,7 @@ export default function App() {
 
   const localtions = [
     {
+      id: 1,
       img: "https://images.pexels.com/photos/2067057/pexels-photo-2067057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       local: "Toquio",
       country: "Tokyo, Japão",
@@ -48,6 +50,7 @@ export default function App() {
       average: 5,
     },
     {
+      id: 2,
       img: "https://images.pexels.com/photos/20771084/pexels-photo-20771084/free-photo-of-cars-on-street-near-eiffel-tower-in-paris-france.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       local: "Paris",
       country: "Paris, França",
@@ -56,6 +59,7 @@ export default function App() {
       tag: "15% de desconto"
     },
     {
+      id: 3,
       img: "https://images.pexels.com/photos/18498510/pexels-photo-18498510/free-photo-of-times-square-in-new-york.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       local: "Nova Iorque",
       country: "New York, EUA",
@@ -63,6 +67,7 @@ export default function App() {
       average: 5,
     },
     {
+      id: 4,
       img: "https://images.pexels.com/photos/3629813/pexels-photo-3629813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       local: "Moscou",
       country: "Moscow, Rússia",
@@ -168,22 +173,20 @@ export default function App() {
             className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
           >
             {
-              localtions.map((local, index) => {
+              localtions.map((local) => {
                 return (
                   <LocalCard
-                    key={index}
+                    key={local.id}
                     img={local.img}
                     local={local.local}
                     country={local.country}
                   >
                     <LocalCard.LocalEvaluationAndPrices
-                      key={index}
                       average={local.average}
                       price={local.price}
                     />
                     {
                       local.tag && <LocalCard.LocalTag
-                        key={index}
                         description={local.tag}
                       />
                     }
@@ -216,22 +219,20 @@ export default function App() {
             className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
           >
             {
-              localtions.map((local, index) => {
+              localtions.map(local => {
                 return (
                   <LocalCard
-                    key={index}
+                    key={local.id}
                     img={local.img}
                     local={local.local}
                     country={local.country}
                   >
                     <LocalCard.LocalEvaluationAndPrices
-                      key={index}
                       average={local.average}
                       price={local.price}
                     />
                     {
                       local.tag && <LocalCard.LocalTag
-                        key={index}
                         description={local.tag}
                       />
                     }
@@ -245,6 +246,9 @@ export default function App() {
         </section>
 
       </main>
+
+
+      <Footer />
     </>
   )
 }
