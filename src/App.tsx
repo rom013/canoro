@@ -12,9 +12,12 @@ import { infoAbout } from "./interfaces/infoAbout.interface";
 import StatsNumber from "./components/cards/statsNumber";
 
 import { motion } from "framer-motion";
-import { LocalCard } from "./components/cards/localCard";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { CarouselCardsLocations } from "./components/slickCarousel/carousel";
 
 interface responseLocation {
   img: string
@@ -32,15 +35,13 @@ export default function App() {
   const [packageTravel, setPackageTravel] = useState<Array<responseLocation>>([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/destinationsPopupar")
+    fetch(`${import.meta.env.VITE_URL_SERVER}/destinationsPopupar`)
       .then(res => res.json())
       .then(res => setLocations(res))
 
-    fetch("http://localhost:3000/packageTravel")
+    fetch(`${import.meta.env.VITE_URL_SERVER}/packageTravel`)
       .then(res => res.json())
       .then(res => setPackageTravel(res))
-
-
   }, [])
 
   const infosAbout: readonly infoAbout[] = [
@@ -142,9 +143,9 @@ export default function App() {
           </div>
         </section>
 
-        <section className="container !px-0">
+        <section className="container !px-0 sm:!px-10">
           <div
-            className="w-full flex px-10 md:flex-row flex-col justify-between md:items-center gap-3"
+            className="w-full px-10 sm:px-0 flex md:flex-row flex-col justify-between md:items-center gap-3"
           >
             <h3
               className="font-lato font-semibold text-2xl bar-title"
@@ -159,38 +160,18 @@ export default function App() {
           </div>
 
           <div
-            className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
+            className="w-full relative"
           >
-            {
-              locationsPopular.map((local) => {
-                return (
-                  <LocalCard
-                    key={local.id}
-                    img={local.img}
-                    local={local.local}
-                    country={local.country}
-                  >
-                    <LocalCard.LocalEvaluationAndPrices
-                      average={local.average}
-                      price={local.price}
-                    />
-                    {
-                      local.tag && <LocalCard.LocalTag
-                        description={local.tag}
-                      />
-                    }
-
-                  </LocalCard>
-                )
-              })
-            }
+            <CarouselCardsLocations
+              locations={locationsPopular}
+            />
           </div>
 
         </section>
 
-        <section className="container !px-0">
+        <section className="container !px-0 sm:!px-10">
           <div
-            className="w-full flex px-10 md:flex-row flex-col justify-between md:items-center gap-3"
+            className="w-full flex px-10 sm:px-0 md:flex-row flex-col justify-between md:items-center gap-3"
           >
             <h3
               className="font-lato font-semibold text-2xl bar-title"
@@ -205,31 +186,11 @@ export default function App() {
           </div>
 
           <div
-            className="w-full px-10 flex gap-5 justify-between overflow-auto md:overflow-hidden"
+            className="w-full relative"
           >
-            {
-              packageTravel.map(local => {
-                return (
-                  <LocalCard
-                    key={local.id}
-                    img={local.img}
-                    local={local.local}
-                    country={local.country}
-                  >
-                    <LocalCard.LocalEvaluationAndPrices
-                      average={local.average}
-                      price={local.price}
-                    />
-                    {
-                      local.tag && <LocalCard.LocalTag
-                        description={local.tag}
-                      />
-                    }
-
-                  </LocalCard>
-                )
-              })
-            }
+            <CarouselCardsLocations
+              locations={packageTravel}
+            />
           </div>
 
         </section>

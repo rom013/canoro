@@ -20,7 +20,8 @@ interface localTagProps {
 function LocalCard({ children, img, local: title, country: subtitle }: localCardProps) {
     return (
         <div
-            className="cursor-pointer flex flex-col gap-3"
+            className="cursor-pointer flex flex-col gap-3 w-fit"
+            style={{ width: "276px" }}
         >
             <section
                 className="relative h-80 w-64 rounded-lg overflow-hidden group"
@@ -49,7 +50,7 @@ function LocalCard({ children, img, local: title, country: subtitle }: localCard
                 />
             </section>
             <footer
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-3 w-64"
             >
                 {children}
             </footer>
