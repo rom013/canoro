@@ -83,5 +83,47 @@
             "average": 4,
             "tag": "40% de desconto"
         }
+    ],
+    "our-networks": [
+        {
+            "name": "facebook",
+            "link": "#",
+            "icon": "FacebookLogo"
+        },
+        {
+            "name": "instagram",
+            "link": "#",
+            "icon": "InstagramLogo"
+        },
+        {
+            "name": "X",
+            "link": "#",
+            "icon": "XLogo"
+        },
+        {
+            "name": "tiktok",
+            "link": "#",
+            "icon": "TiktokLogo"
+        },
+        {
+            "name": "threads",
+            "link": "#",
+            "icon": "ThreadsLogo"
+        },
+        {
+            "name": "youtube",
+            "link": "#",
+            "icon": "YoutubeLogo"
+        },
+        {
+            "name": "telegram",
+            "link": "#",
+            "icon": "TelegramLogo"
+        },
+        {
+            "name": "spotify",
+            "link": "#",
+            "icon": "SpotifyLogo"
+        }
     ]
 }

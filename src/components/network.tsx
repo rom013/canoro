@@ -1,56 +1,34 @@
 import { FacebookLogo, InstagramLogo, SpotifyLogo, TelegramLogo, ThreadsLogo, TiktokLogo, XLogo, YoutubeLogo } from "@phosphor-icons/react"
+import { memo, useEffect, useState } from "react"
+import { networkProps } from "../interfaces/propsNetwork.interface"
 
-const NETWORKS = [
-    {
-        name: "facebook",
-        link: "#",
-        icon: <FacebookLogo />,
-    },
-    {
-        name: "instagram",
-        link: "#",
-        icon: <InstagramLogo />,
-    },
-    {
-        name: "X",
-        link: "#",
-        icon: <XLogo />,
-    },
-    {
-        name: "tiktok",
-        link: "#",
-        icon: <TiktokLogo />,
-    },
-    {
-        name: "threads",
-        link: "#",
-        icon: <ThreadsLogo />,
-    },
-    {
-        name: "youtube",
-        link: "#",
-        icon: <YoutubeLogo />,
-    },
-    {
-        name: "telegram",
-        link: "#",
-        icon: <TelegramLogo />,
-    },
-    {
-        name: "spotify",
-        link: "#",
-        icon: <SpotifyLogo />,
-    },
-]
+const icons: any = {
+    FacebookLogo,
+    InstagramLogo,
+    SpotifyLogo,
+    TelegramLogo,
+    ThreadsLogo,
+    TiktokLogo,
+    XLogo,
+    YoutubeLogo
+}
 
+function Network() {
+    const [networks, setNetworks] = useState<networkProps[]>([])
 
-export default function Network() {
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_URL_SERVER}/our-networks`)
+            .then(res => res.json())
+            .then(res => setNetworks(res))
+    }, [])
+
     return (
         <ul
             className="flex flex-wrap w-full gap-2 items-center justify-center px-5 text-2xl"
         >
             {
-                NETWORKS.map(network => {
+                networks.map(network => {
+                    const IconComponent = icons[network.icon]
                     return (
                         <li
                             className="hover:-translate-y-2 transition-all p-1"
@@ -59,7 +37,9 @@ export default function Network() {
                                 href={network.link}
                                 title={network.name}
                             >
-                                {network.icon}
+                                {
+                                    <IconComponent />
+                                }
                             </a>
                         </li>
                     )
@@ -68,3 +48,5 @@ export default function Network() {
         </ul>
     )
 }
+
+export default memo(Network)
