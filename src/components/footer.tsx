@@ -4,7 +4,7 @@ import Network from "./network";
 export default function Footer() {
     return (
         <footer
-            className="flex flex-col justify-between  mt-16 bg-amazon bg-no-repeat bg-cover py-10 px-20 min-h-96"
+            className="flex flex-col justify-between mt-16 bg-amazon bg-no-repeat bg-cover py-10 px-20 min-h-96"
         >
             <div
                 className="flex justify-between"
@@ -18,7 +18,7 @@ export default function Footer() {
                 </section>
 
                 <div
-                    className="flex gap-5"
+                    className="sm:flex gap-5 hidden"
                 >
                     <section
                         className="max-w-96 text-white font-lato space-y-8"

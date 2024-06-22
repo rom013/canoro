@@ -23,7 +23,7 @@ export default function Header() {
     const windowScrollY = useWindowScrollY()
     const windowWidth = useWindowWidth()
 
-    const isScreenMobile = windowWidth < 640
+    const isScreenMobile = windowWidth < 885
     const isScrolled = windowScrollY > 700
 
     return (

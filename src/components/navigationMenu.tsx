@@ -15,7 +15,7 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
     const windowWidth = useWindowWidth()
     const windowScrollY = useWindowScrollY()
 
-    const isScreenMobile = windowWidth < 640
+    const isScreenMobile = windowWidth <= 885
     const isScrolled = windowScrollY > 700
 
     return (
