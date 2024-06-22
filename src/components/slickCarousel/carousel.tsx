@@ -56,14 +56,6 @@ export function CarouselCardsLocations({ locations }: carouselLocationProps) {
                     slidesToScroll: 1,
                     centerMode: true,
                 }
-            },
-            {
-                breakpoint: 380,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: true,
-                }
             }
         ]
     };

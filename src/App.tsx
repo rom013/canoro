@@ -160,7 +160,7 @@ export default function App() {
           </div>
 
           <div
-            className="w-full relative overflow-hidden"
+            className="w-full relative overflow-hidden md:overflow-visible"
           >
             <CarouselCardsLocations
               locations={locationsPopular}
@@ -186,7 +186,7 @@ export default function App() {
           </div>
 
           <div
-            className="w-full relative overflow-hidden"
+            className="w-full relative overflow-hidden md:overflow-visible"
           >
             <CarouselCardsLocations
               locations={packageTravel}
