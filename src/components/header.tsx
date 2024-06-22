@@ -28,7 +28,7 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed top-10 w-full z-50 transition-all ${isScrolled && "bg-white !top-0 py-10 shadow-md shadow-blue-canoro/5"}`}
+            className={`fixed top-10 w-full z-50 transition-all ${isScrolled && "bg-white/50 backdrop-blur-sm md:bg-white !top-0 py-10 md:shadow-md shadow-blue-canoro/5"}`}
         >
             <div
                 className="max-w-screen-xl w-full mx-auto flex justify-between items-center px-10"

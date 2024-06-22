@@ -39,3 +39,24 @@
 .slick-track {
   display: flex;
 }
+
+.scale-up-ver-top {
+  -webkit-animation: scale-up-ver-top 0.4s
+    cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  animation: scale-up-ver-top 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+@keyframes scale-up-ver-top {
+  0% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+}

@@ -28,15 +28,21 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
                         >
                             {
                                 isOpen
-                                    ? <X color={"black"} size={32} />
-                                    : <List color={"white"} size={32} />
+                                    ? <X
+                                        color={"#0D7CE9"}
+                                        size={32}
+                                    />
+                                    : <List
+                                        color={isScrolled ? "#0D7CE9" : "white"}
+                                        size={32}
+                                    />
                             }
 
                         </button>
 
                         {
                             isOpen && <nav
-                                className="absolute w-full bg-white left-0 -z-10 pt-16 pb-8 px-8 -top-10 flex flex-col items-center gap-4 shadow-md"
+                                className={`absolute w-full bg-white left-0 -z-10 pb-8 pt-20 px-8 flex flex-col items-center gap-4 shadow-md scale-up-ver-top ${isScrolled ? "top-0" : "-top-10"}`}
                             >
                                 {
                                     routes.map((route, index) => {
