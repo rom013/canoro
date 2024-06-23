@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import { LocalCard } from "../cards/localCard";
 import { useRef, useState } from "react";
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { CaretCircleDown, CaretCircleUp, CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 interface requestLocation {
     img: string
@@ -12,9 +12,17 @@ interface requestLocation {
     tag?: string
     id: string
 }
+interface requestCountrys {
+    nameFlag: string
+    country: string
+    id_country: string
+}
 
 interface carouselLocationProps {
     locations: Array<requestLocation>
+}
+interface carouselCountryProps {
+    countrys: Array<requestCountrys>
 }
 
 export function CarouselCardsLocations({ locations }: carouselLocationProps) {
@@ -106,6 +114,72 @@ export function CarouselCardsLocations({ locations }: carouselLocationProps) {
             >
                 <CaretRight />
             </button>
+        </>
+    )
+}
+
+export function CarouselCountrys({ countrys }: carouselCountryProps) {
+    const settings = {
+        centerMode: true,
+        slidesToShow: 10,
+        slidesToScroll: 1,
+        vertical: true,
+        verticalSwiping: true,
+        infinite: true,
+        focusOnSelect: true,
+        centerPadding: "10px",
+        nextArrow: <></>,
+        prevArrow: <></>
+    }
+
+    const slider = useRef<any>(null)
+
+    return (
+        <>
+            <Slider
+                {...settings}
+                className="flex flex-col h-full"
+                ref={slider}
+            >
+                {
+                    countrys.map((country) => {
+                        return (
+                            <div
+                                key={country.id_country}
+                                className="min-w-8 my-8 cursor-pointer text-center transition-all -translate-y-20"
+                                id={country.id_country}
+                            >
+                                <div>
+                                    <p className={`fi ${country.nameFlag}`} />
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </Slider>
+            <div
+                className="flex flex-col gap-3 absolute -right-10 top-1/2 -translate-y-6"
+            >
+                <button
+                    onClick={() => slider?.current?.slickPrev()}
+                    className=""
+                >
+                    <CaretCircleUp
+                        size={32}
+                        className="text-white hover:-translate-y-1 transition-all hover:text-blue-canoro-secundary"
+                    />
+                </button>
+                <button
+                    className=""
+                    onClick={() => slider?.current?.slickNext()}
+                >
+                    <CaretCircleDown
+                        size={32}
+                        className="text-white hover:translate-y-1 transition-all hover:text-blue-canoro-secundary"
+                    />
+                </button>
+
+            </div>
         </>
     )
 }

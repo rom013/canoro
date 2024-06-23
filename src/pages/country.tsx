@@ -1,17 +1,21 @@
-import Slider from "react-slick";
 import Header from "../components/header/header";
+import { useEffect, useState } from "react";
+import { CarouselCountrys } from "../components/slickCarousel/carousel";
+
+interface country {
+    nameFlag: string
+    country: string
+    id_country: string
+}
 
 export default function Country() {
+    const [countrys, setCountrys] = useState<country[]>([])
 
-    const settings = {
-        centerMode: true,
-        slidesToShow: 10,
-        slidesToScroll: 1,
-        vertical: true,
-        verticalSwiping: true,
-        infinite: true,
-        focusOnSelect: true,
-    }
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_URL_SERVER}/country`)
+            .then(res => res.json())
+            .then(res => setCountrys(res))
+    }, [])
 
     return (
         <>
@@ -20,30 +24,16 @@ export default function Country() {
                 className="min-h-svh bg-zinc-500 flex"
             >
                 <div
-                    className="ml-6 max-w-16 relative"
+                    className="ml-6 max-w-16 h-dvh relative"
                 >
                     <div
-                        className="w-px h-dvh bg-white absolute left-1/2 -translate-x-1/2"
+                        className="w-px h-full bg-white absolute left-1/2 -translate-x-1/2"
                     />
-                    <Slider
-                        {...settings}
-                        className="flex flex-col h-full"
-                    >
-                        {
-                            Array(10).fill("hello").map((x, i) => {
-                                return (
-                                    <div
-                                        key={x}
-                                        className="min-w-8 my-8 cursor-pointer bg-red-500 text-center transition-all"
-                                    >
-                                        <div>
-                                            <p className="text-white">{i}</p>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </Slider>
+
+                    <CarouselCountrys
+                        countrys={countrys}
+                    />
+
                 </div>
             </main>
         </>

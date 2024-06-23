@@ -45,7 +45,7 @@
 }
 
 .slick-center div div {
-  @apply bg-pink-700 scale-125 text-center;
+  @apply scale-150 text-center;
 }
 
 .scale-up-ver-top {

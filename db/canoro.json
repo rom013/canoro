@@ -125,5 +125,95 @@
             "link": "#",
             "icon": "SpotifyLogo"
         }
+    ],
+    "country": [
+        {
+            "nameFlag": "fi-br",
+            "country": "brasil"
+        },
+        {
+            "nameFlag": "fi-fr",
+            "country": "france"
+        },
+        {
+            "nameFlag": "fi-de",
+            "country": "germany"
+        },
+        {
+            "nameFlag": "fi-us",
+            "country": "united states"
+        },
+        {
+            "nameFlag": "fi-jp",
+            "country": "japan"
+        },
+        {
+            "nameFlag": "fi-cn",
+            "country": "china"
+        },
+        {
+            "nameFlag": "fi-in",
+            "country": "india"
+        },
+        {
+            "nameFlag": "fi-ru",
+            "country": "russia"
+        },
+        {
+            "nameFlag": "fi-gb",
+            "country": "united kingdom"
+        },
+        {
+            "nameFlag": "fi-it",
+            "country": "italy"
+        },
+        {
+            "nameFlag": "fi-au",
+            "country": "australia"
+        },
+        {
+            "nameFlag": "fi-ca",
+            "country": "canada"
+        },
+        {
+            "nameFlag": "fi-mx",
+            "country": "mexico"
+        },
+        {
+            "nameFlag": "fi-za",
+            "country": "south africa"
+        },
+        {
+            "nameFlag": "fi-kr",
+            "country": "south korea"
+        },
+        {
+            "nameFlag": "fi-ar",
+            "country": "argentina"
+        },
+        {
+            "nameFlag": "fi-es",
+            "country": "spain"
+        },
+        {
+            "nameFlag": "fi-se",
+            "country": "sweden"
+        },
+        {
+            "nameFlag": "fi-ch",
+            "country": "switzerland"
+        },
+        {
+            "nameFlag": "fi-nl",
+            "country": "netherlands"
+        },
+        {
+            "nameFlag": "fi-tr",
+            "country": "turkey"
+        },
+        {
+            "nameFlag": "fi-ng",
+            "country": "nigeria"
+        }
     ]
 }
