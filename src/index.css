@@ -36,8 +36,16 @@
   }
 }
 
-.slick-track {
+/* .slick-track {
   display: flex;
+} */
+
+.slick-vertical .slick-slide {
+  @apply flex justify-center;
+}
+
+.slick-center div div {
+  @apply bg-pink-700 scale-125 text-center;
 }
 
 .scale-up-ver-top {

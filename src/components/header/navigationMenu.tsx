@@ -1,8 +1,9 @@
 import { List, X } from "@phosphor-icons/react"
-import { useWindowScrollY, useWindowWidth } from "../hook/useWindow"
-import { routes } from "../interfaces/routes.interface"
+import { useWindowScrollY, useWindowWidth } from "../../hook/useWindow"
+import { routes } from "../../interfaces/routes.interface"
 import SearchHeader from "./searchHeader"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 interface propsNavigationMenu {
     routes: readonly routes[]
@@ -17,6 +18,8 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
 
     const isScreenMobile = windowWidth <= 885
     const isScrolled = windowScrollY > 700
+
+    const navigate = useNavigate()
 
     return (
         <>
@@ -48,7 +51,10 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
                                     routes.map((route, index) => {
                                         return (
                                             <a
-                                                href={route.path}
+                                                onClick={e => {
+                                                    e.preventDefault()
+                                                    navigate(route.path)
+                                                }}
                                                 className="text-lg"
                                                 key={index}
                                             >
@@ -67,8 +73,11 @@ export default function NavigationMenu({ routes }: propsNavigationMenu) {
                             routes.map((route, index) => {
                                 return (
                                     <a
-                                        href={route.path}
-                                        className="text-lg"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            navigate(route.path)
+                                        }}
+                                        className="text-lg cursor-pointer"
                                         key={index}
                                     >
                                         {route.name}

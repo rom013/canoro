@@ -65,6 +65,7 @@ export function CarouselCardsLocations({ locations }: carouselLocationProps) {
             <Slider
                 {...settings}
                 ref={slider}
+                className="flex"
             >
 
                 {

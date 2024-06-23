@@ -1,6 +1,6 @@
-import { useWindowScrollY, useWindowWidth } from "../hook/useWindow"
-import { routes } from "../interfaces/routes.interface"
-import { SvgLogoFull, SvgLogoIco } from "./imageLogo"
+import { useWindowScrollY, useWindowWidth } from "../../hook/useWindow"
+import { routes } from "../../interfaces/routes.interface"
+import { SvgLogoFull, SvgLogoIco } from "../imageLogo"
 import NavigationMenu from "./navigationMenu"
 
 export default function Header() {
