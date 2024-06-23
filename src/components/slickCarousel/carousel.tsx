@@ -15,7 +15,7 @@ interface requestLocation {
 interface requestCountrys {
     nameFlag: string
     country: string
-    id_country: string
+    id: string
 }
 
 interface carouselLocationProps {
@@ -23,6 +23,7 @@ interface carouselLocationProps {
 }
 interface carouselCountryProps {
     countrys: Array<requestCountrys>
+    countrySelected: (id_country: string) => void
 }
 
 export function CarouselCardsLocations({ locations }: carouselLocationProps) {
@@ -118,7 +119,7 @@ export function CarouselCardsLocations({ locations }: carouselLocationProps) {
     )
 }
 
-export function CarouselCountrys({ countrys }: carouselCountryProps) {
+export function CarouselCountrys({ countrys, countrySelected }: carouselCountryProps) {
     const settings = {
         centerMode: true,
         slidesToShow: 10,
@@ -129,7 +130,10 @@ export function CarouselCountrys({ countrys }: carouselCountryProps) {
         focusOnSelect: true,
         centerPadding: "10px",
         nextArrow: <></>,
-        prevArrow: <></>
+        prevArrow: <></>,
+        afterChange: function (index: number) {
+            countrySelected(countrys[index].id);
+        }
     }
 
     const slider = useRef<any>(null)
@@ -145,12 +149,16 @@ export function CarouselCountrys({ countrys }: carouselCountryProps) {
                     countrys.map((country) => {
                         return (
                             <div
-                                key={country.id_country}
+                                key={country.id}
                                 className="min-w-8 my-8 cursor-pointer text-center transition-all -translate-y-20"
-                                id={country.id_country}
+                                onClick={() => {
+                                    countrySelected(country.id)
+                                }}
                             >
                                 <div>
-                                    <p className={`fi ${country.nameFlag}`} />
+                                    <p
+                                        className={`fi ${country.nameFlag}`}
+                                    />
                                 </div>
                             </div>
                         )
