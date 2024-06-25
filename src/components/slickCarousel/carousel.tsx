@@ -166,7 +166,7 @@ export function CarouselCountrys({ countrys, countrySelected }: carouselCountryP
                 }
             </Slider>
             <div
-                className="flex flex-col gap-3 absolute -right-10 top-1/2 -translate-y-6"
+                className="flex flex-col gap-3 absolute -right-10 top-1/2 -translate-y-6 z-50"
             >
                 <button
                     onClick={() => slider?.current?.slickPrev()}

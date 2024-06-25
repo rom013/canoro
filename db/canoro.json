@@ -130,99 +130,171 @@
         {
             "nameFlag": "fi-br",
             "country": "brasil",
-            "background": "https://wallpapercrafter.com/desktop1/532984-sugar-loaf-mountain-botafogo-beach-rio-de-janeiro.jpg"
+            "background": "https://wallpapercrafter.com/desktop1/532984-sugar-loaf-mountain-botafogo-beach-rio-de-janeiro.jpg",
+            "money": "real",
+            "population": "200 milhões",
+            "climate": "equatorial, tropical, semiárido",
+            "id": "1"
         },
         {
             "nameFlag": "fi-fr",
             "country": "france",
-            "background": "https://wallpapers.com/images/hd/eiffel-tower-unique-hd-rf8tvp0t96t9f6bt.jpg"
+            "background": "https://wallpapers.com/images/hd/eiffel-tower-unique-hd-rf8tvp0t96t9f6bt.jpg",
+            "money": "euro",
+            "population": "67 milhões",
+            "climate": "temperado, mediterrâneo"
         },
         {
             "nameFlag": "fi-de",
             "country": "germany",
-            "background": "https://get.wallhere.com/photo/sunset-sea-city-cityscape-reflection-sunrise-skyline-evening-morning-Germany-bridge-river-horizon-dusk-Cologne-Cathedral-Cologne-dawn-landmark-human-settlement-121467.jpg"
+            "background": "https://get.wallhere.com/photo/sunset-sea-city-cityscape-reflection-sunrise-skyline-evening-morning-Germany-bridge-river-horizon-dusk-Cologne-Cathedral-Cologne-dawn-landmark-human-settlement-121467.jpg",
+            "money": "euro",
+            "population": "83 milhões",
+            "climate": "temperado"
         },
         {
             "nameFlag": "fi-us",
             "country": "united states",
-            "background": "https://w.forfun.com/fetch/57/57d85f862143d97680f32c51e17dc3c4.jpeg?w=2000"
+            "background": "https://w.forfun.com/fetch/57/57d85f862143d97680f32c51e17dc3c4.jpeg?w=2000",
+            "money": "dólar americano",
+            "population": "331 milhões",
+            "climate": "variado (subtropical, temperado, árido, tropical)"
         },
         {
             "nameFlag": "fi-jp",
             "country": "japan",
-            "background": "https://i.pinimg.com/originals/c1/16/53/c11653d59bac27a8b02f07865d828c58.jpg"
+            "background": "https://i.pinimg.com/originals/c1/16/53/c11653d59bac27a8b02f07865d828c58.jpg",
+            "money": "iene",
+            "population": "126 milhões",
+            "climate": "temperado, subtropical"
         },
         {
             "nameFlag": "fi-cn",
             "country": "china",
-            "background": "https://airlines-airports.com/wp-content/uploads/2016/07/China-Guiyang.jpg"
+            "background": "https://airlines-airports.com/wp-content/uploads/2016/07/China-Guiyang.jpg",
+            "money": "yuan",
+            "population": "1,4 bilhões",
+            "climate": "variado (subtropical, temperado, árido, alpino)"
         },
         {
             "nameFlag": "fi-in",
             "country": "india",
-            "background": "https://www.touristsecrets.com/wp-content/uploads/2023/09/what-to-see-in-amritsar-walking-through-history-in-the-punjab-1694265985.jpeg"
+            "background": "https://www.touristsecrets.com/wp-content/uploads/2023/09/what-to-see-in-amritsar-walking-through-history-in-the-punjab-1694265985.jpeg",
+            "money": "rupia indiana",
+            "population": "1,3 bilhões",
+            "climate": "tropical, temperado"
         },
         {
             "nameFlag": "fi-ru",
             "country": "russia",
-            "background": "https://facts.net/wp-content/uploads/2023/07/50-facts-about-russia-1688206367.jpeg"
+            "background": "https://facts.net/wp-content/uploads/2023/07/50-facts-about-russia-1688206367.jpeg",
+            "money": "rublo",
+            "population": "146 milhões",
+            "climate": "subártico, temperado, continental"
         },
         {
             "nameFlag": "fi-gb",
             "country": "united kingdom",
-            "background": "https://www.etfrc.com/articles/wp-content/uploads/2017/04/UK-Parliament.jpg"
+            "background": "https://www.etfrc.com/articles/wp-content/uploads/2017/04/UK-Parliament.jpg",
+            "money": "libra esterlina",
+            "population": "66 milhões",
+            "climate": "temperado"
         },
         {
             "nameFlag": "fi-it",
-            "country": "italy"
+            "country": "italy",
+            "background": "https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2016/03/Manarola_iStock_Freeartist_www.istockphoto.jpg",
+            "money": "euro",
+            "population": "60 milhões",
+            "climate": "mediterrâneo, temperado"
         },
         {
             "nameFlag": "fi-au",
-            "country": "australia"
+            "country": "australia",
+            "background": "https://www.luxaviation.com/wp-content/uploads/2020/03/about-locations-sydney.jpg",
+            "money": "dólar australiano",
+            "population": "25 milhões",
+            "climate": "variado (desértico, tropical, temperado)"
         },
         {
             "nameFlag": "fi-ca",
-            "country": "canada"
+            "country": "canada",
+            "background": "https://i.pinimg.com/originals/34/74/bb/3474bb689a22dcc1c6b91a2a869ee055.jpg",
+            "money": "dólar canadense",
+            "population": "38 milhões",
+            "climate": "variado (ártico, temperado, continental)"
         },
         {
             "nameFlag": "fi-mx",
-            "country": "mexico"
+            "country": "mexico",
+            "background": "https://images.squarespace-cdn.com/content/v1/506a5a9fe4b0244b0fda83df/1556947935597-0Y270ME5365QFXFHDSIH/avril_2019_198c.jpg",
+            "money": "peso mexicano",
+            "population": "128 milhões",
+            "climate": "tropical, temperado"
         },
         {
             "nameFlag": "fi-za",
-            "country": "south africa"
+            "country": "south africa",
+            "background": "https://process.filestackapi.com/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/mALx1HreQVSnIWF5LhNz",
+            "money": "rand",
+            "population": "59 milhões",
+            "climate": "variado (semiárido, mediterrâneo, subtropical)"
         },
         {
             "nameFlag": "fi-kr",
-            "country": "south korea"
+            "country": "south korea",
+            "background": "https://i.pinimg.com/originals/47/c5/37/47c537947a5eb5de3938b14e5ac6e9e7.jpg",
+            "money": "won",
+            "population": "51 milhões",
+            "climate": "temperado"
         },
         {
             "nameFlag": "fi-ar",
-            "country": "argentina"
+            "country": "argentina",
+            "background": "https://wallpapers.com/images/file/1920x1080-full-hd-nature-perito-moreno-glacier-9dbs3g7c2m2v0r86.jpg",
+            "money": "peso argentino",
+            "population": "45 milhões",
+            "climate": "variado (tropical, temperado, subpolar)"
         },
         {
             "nameFlag": "fi-es",
-            "country": "spain"
+            "country": "spain",
+            "background": "https://w.forfun.com/fetch/51/51500bdc989f109bb314fe3f71d81229.jpeg",
+            "money": "euro",
+            "population": "47 milhões",
+            "climate": "mediterrâneo, temperado"
         },
         {
             "nameFlag": "fi-se",
-            "country": "sweden"
+            "country": "sweden",
+            "background": "https://wallpapercosmos.com/w/full/8/a/2/640657-3840x2160-desktop-4k-sweden-background-photo.jpg",
+            "money": "coroa sueca",
+            "population": "10 milhões",
+            "climate": "temperado, subártico"
         },
         {
             "nameFlag": "fi-ch",
-            "country": "switzerland"
+            "country": "switzerland",
+            "background": "https://kiplingandclark.com/wp-content/uploads/gettyimages-486575770.jpg",
+            "money": "franco suíço",
+            "population": "8 milhões",
+            "climate": "temperado"
         },
         {
             "nameFlag": "fi-nl",
-            "country": "netherlands"
+            "country": "netherlands",
+            "background": "https://exsion365.com/wp-content/uploads/amsterdam-canals-netherlands-4038204.jpg",
+            "money": "euro",
+            "population": "17 milhões",
+            "climate": "temperado marítimo"
         },
         {
             "nameFlag": "fi-tr",
-            "country": "turkey"
-        },
-        {
-            "nameFlag": "fi-ng",
-            "country": "nigeria"
+            "country": "turkey",
+            "background": "https://wallpapers.com/images/hd/istanbul-wallpaper-9-hotel-finder-in-turkey-9abpxc3yrouy2ctw.jpg",
+            "money": "lira turca",
+            "population": "82 milhões",
+            "climate": "mediterrâneo, continental"
         }
     ]
 }
