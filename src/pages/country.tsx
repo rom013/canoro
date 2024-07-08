@@ -1,6 +1,6 @@
 import Header from "../components/header/header";
 import { useEffect, useState } from "react";
-import { CarouselCountrys } from "../components/slickCarousel/carousel";
+import { CarouselCardsLocationsCountry, CarouselCountrys } from "../components/slickCarousel/carousel";
 import { Money, Thermometer, User } from "@phosphor-icons/react";
 
 interface country {
@@ -11,6 +11,7 @@ interface country {
     money: string
     population: string
     climate: string
+    destiny: Array<any>
 }
 
 export default function Country() {
@@ -58,11 +59,11 @@ export default function Country() {
         <>
             <Header />
             <main
-                className={`min-h-svh ${countrySelected?.background ?? "bg-zinc-500"} flex bg-cover bg-fixed`}
+                className={`h-svh ${countrySelected?.background ?? "bg-zinc-500"} flex bg-cover bg-fixed`}
                 style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.7)), url(${countrySelected?.background})` }}
             >
                 <div
-                    className="ml-6 max-w-16 h-dvh relative"
+                    className="ml-6 max-w-16 h-dvh relative -translate-y-10 md:translate-y-0"
                 >
                     <div
                         className="w-px h-full bg-white absolute left-1/2 -translate-x-1/2"
@@ -79,20 +80,19 @@ export default function Country() {
                         ? <p>Carregando...</p>
                         : countrySelected && (
                             <section
-                                className="flex-1 flex items-center"
+                                className="flex-1 flex xl:items-center gap-10 justify-between flex-col xl:flex-row"
                             >
                                 <div
-                                    className="flex flex-col gap-20 pl-20 max-w-2xl translate-y-20"
+                                    className="flex flex-col md:gap-20 gap-6 lg:pl-20 pl-14 md:max-w-2xl md:translate-y-20 translate-y-40 pointer-events-none"
                                 >
                                     <h2
-                                        className={`text-white font-sora font-extrabold uppercase ${countrySelected.country.length > 7 ? "text-7xl" : "text-9xl"}`}
+                                        className={`text-white font-sora font-extrabold uppercase text-5xl md:text-7xl`}
                                     >
                                         {
                                             countrySelected?.country
                                         }
                                     </h2>
-
-                                    <div className="text-white flex flex-col gap-4">
+                                    <div className="text-zinc-200 flex flex-col gap-4">
                                         <InfoCountry
                                             dataInfo={countrySelected.population}
                                             icon="User"
@@ -107,6 +107,24 @@ export default function Country() {
                                         />
                                     </div>
                                 </div>
+
+                                <div
+                                    className="gap-10 flex flex-col self-start lg:self-end lg:-translate-x-10 lg:mb-10 mb-0 py-10 lg:py-0 absolute lg:relative left-0 bottom-0 w-screen lg:w-auto bg-white/20 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-0"
+                                >
+                                    <h3
+                                        className="md:max-w-80 md:w-full border-b-2 border-white font-lato text-white text-2xl font-bold uppercase mx-8 lg:mx-0"
+                                    >
+                                        top destinos
+                                    </h3>
+                                    <div
+                                        className="overflow-hidden lg:overflow-visible"
+                                    >
+                                        <CarouselCardsLocationsCountry
+                                            locations={countrySelected.destiny}
+                                        />
+                                    </div>
+                                </div>
+
                             </section>
                         )
                 }
@@ -132,12 +150,12 @@ function InfoCountry({ icon, dataInfo }: InfoCountryProps) {
 
     return (
         <div
-            className="flex gap-6 items-center capitalize"
+            className="flex md:gap-6 gap-2 items-center capitalize text-xl md:text-3xl"
         >
             {
-                <Icon size={32} />
+                <Icon />
             }
-            <span className="text-2xl">
+            <span className="text-sm md:text-2xl">
                 {dataInfo}
             </span>
         </div>

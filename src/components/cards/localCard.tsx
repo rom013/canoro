@@ -1,11 +1,13 @@
 import { Star } from "@phosphor-icons/react"
 import { ReactNode } from "react"
+import { twMerge } from "tailwind-merge"
 
 interface localCardProps {
     children?: ReactNode
     img: string
     local: string
     country?: string
+    className: string
 }
 
 interface evaluationAndPricesProps {
@@ -17,10 +19,10 @@ interface localTagProps {
     description: string
 }
 
-function LocalCard({ children, img, local: title, country: subtitle }: localCardProps) {
+function LocalCard({ children, img, local: title, country: subtitle, className }: localCardProps) {
     return (
         <div
-            className="cursor-pointer flex flex-col gap-3 w-fit"
+            className={twMerge("cursor-pointer flex flex-col gap-3 w-fit", className)}
             style={{ width: "276px" }}
         >
             <section

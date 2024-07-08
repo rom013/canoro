@@ -30,7 +30,7 @@ export function CarouselCardsLocations({ locations }: carouselLocationProps) {
     const slider = useRef<any>(null)
     const [indexSlide, setIndexSlide] = useState(0)
     const lengthLocations = locations.length
-    const slidesToShow = 4
+    const slidesToShow = 1
 
     const settings = {
         dots: false,
@@ -119,6 +119,66 @@ export function CarouselCardsLocations({ locations }: carouselLocationProps) {
     )
 }
 
+export function CarouselCardsLocationsCountry({ locations }: carouselLocationProps) {
+    const slider = useRef<any>(null)
+    const slidesToShow = 1
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        slidesToShow,
+        slidesToScroll: 1,
+        variableWidth: true,
+        swipeToSlide: true,
+        swipe: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    };
+
+    return (
+        <>
+            <Slider
+                {...settings}
+                ref={slider}
+                className="flex  w-full lg:max-w-3xl text-white"
+            >
+
+                {
+                    locations.map((local) => {
+                        return (
+                            <LocalCard
+                                key={local.id}
+                                img={local.img}
+                                local={local.local}
+                                country={local.country}
+                                className="h-44 lg:h-auto"
+                            >
+                                <LocalCard.LocalEvaluationAndPrices
+                                    average={local.average}
+                                    price={local.price}
+                                />
+                                {
+                                    local.tag && <LocalCard.LocalTag
+                                        description={local.tag}
+                                    />
+                                }
+
+                            </LocalCard>
+                        )
+                    })
+                }
+            </Slider>
+        </>
+    )
+}
+
 export function CarouselCountrys({ countrys, countrySelected }: carouselCountryProps) {
     const settings = {
         centerMode: true,
@@ -156,8 +216,8 @@ export function CarouselCountrys({ countrys, countrySelected }: carouselCountryP
                                 }}
                             >
                                 <div>
-                                    <p
-                                        className={`fi ${country.nameFlag}`}
+                                    <span
+                                        className={`fi ${country.nameFlag} rounded`}
                                     />
                                 </div>
                             </div>

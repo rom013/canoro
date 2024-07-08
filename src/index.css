@@ -44,8 +44,8 @@
   @apply flex justify-center;
 }
 
-.slick-center div div {
-  @apply scale-150 text-center;
+.slick-center div span {
+  @apply scale-[2] text-center;
 }
 
 .scale-up-ver-top {
