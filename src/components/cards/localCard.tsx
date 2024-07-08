@@ -7,7 +7,7 @@ interface localCardProps {
     img: string
     local: string
     country?: string
-    className: string
+    className?: string
 }
 
 interface evaluationAndPricesProps {

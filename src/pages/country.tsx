@@ -1,6 +1,6 @@
 import Header from "../components/header/header";
 import { useEffect, useState } from "react";
-import { CarouselCardsLocationsCountry, CarouselCountrys } from "../components/slickCarousel/carousel";
+import { CarouselCardsLocations, CarouselCountrys } from "../components/slickCarousel/carousel";
 import { Money, Thermometer, User } from "@phosphor-icons/react";
 
 interface country {
@@ -13,6 +13,25 @@ interface country {
     climate: string
     destiny: Array<any>
 }
+
+const settings = {
+    dots: false,
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+    swipeToSlide: true,
+    swipe: true,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        }
+    ]
+};
 
 export default function Country() {
     const [countrys, setCountrys] = useState<country[]>([])
@@ -119,8 +138,10 @@ export default function Country() {
                                     <div
                                         className="overflow-hidden lg:overflow-visible"
                                     >
-                                        <CarouselCardsLocationsCountry
+                                        <CarouselCardsLocations
                                             locations={countrySelected.destiny}
+                                            settings={settings}
+                                            isPrimary={false}
                                         />
                                     </div>
                                 </div>
@@ -155,7 +176,7 @@ function InfoCountry({ icon, dataInfo }: InfoCountryProps) {
             {
                 <Icon />
             }
-            <span className="text-sm md:text-2xl">
+            <span className="text-sm md:text-xl">
                 {dataInfo}
             </span>
         </div>

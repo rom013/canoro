@@ -27,7 +27,48 @@ interface responseLocation {
     id: string
 }
 
+
+
 export default function Home() {
+
+    const [indexSlide, setIndexSlide] = useState(0)
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 3,
+        variableWidth: true,
+        swipeToSlide: true,
+        afterChange: function (index: number) {
+            setIndexSlide(index)
+        },
+        swipe: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                }
+            }
+        ]
+    };
 
     const [locationsPopular, setLocations] = useState<Array<responseLocation>>([])
     const [packageTravel, setPackageTravel] = useState<Array<responseLocation>>([])
@@ -161,6 +202,9 @@ export default function Home() {
                     >
                         <CarouselCardsLocations
                             locations={locationsPopular}
+                            isPrimary
+                            settings={settings}
+                            indexSlide={indexSlide}
                         />
                     </div>
 
@@ -187,6 +231,9 @@ export default function Home() {
                     >
                         <CarouselCardsLocations
                             locations={packageTravel}
+                            isPrimary
+                            settings={settings}
+                            indexSlide={indexSlide}
                         />
                     </div>
 
