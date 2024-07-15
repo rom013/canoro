@@ -27,7 +27,7 @@ export default function Country() {
         fetch(`${import.meta.env.VITE_URL_SERVER}/countries`)
             .then(res => res.json())
             .then(res => {
-                console.log(res);
+                setCountrySelectedId(res[0].id_country);
                 setCountrys(res)
             })
             .finally(() => {
