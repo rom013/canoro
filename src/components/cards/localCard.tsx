@@ -6,8 +6,8 @@ import { twMerge } from "tailwind-merge"
 interface localCardProps {
     children?: ReactNode
     img: string
-    local: string
-    country?: string | false
+    title: string
+    subtitle?: string | false
     className?: string
     id: string
 }
@@ -21,7 +21,7 @@ interface localTagProps {
     description: string
 }
 
-function LocalCard({ children, img, local: title, country: subtitle, className, id }: localCardProps) {
+function LocalCard({ children, img, title, subtitle, className, id }: localCardProps) {
 
     const navigation = useNavigate()
 
@@ -41,7 +41,7 @@ function LocalCard({ children, img, local: title, country: subtitle, className, 
                 />
                 <div className="flex flex-col -space-y-3 absolute bottom-6 left-6 text-white z-10 font-barlow">
                     <strong
-                        className={`text-[2rem] ${!subtitle && "font-bold uppercase"}`}
+                        className={`text-[2rem] ${!subtitle && "!uppercase"} font-bold capitalize`}
                     >
                         {title}
                     </strong>

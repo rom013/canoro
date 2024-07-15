@@ -1,14 +1,21 @@
-interface city {
+//////////////////
+
+export interface City {
+  id_city: string;
   name: string;
   background: string;
-  country: string;
+  country: string | any;
 }
 
-export interface responseLocation {
+interface Package {
   price: string;
   discount?: number | 0;
   cityTour?: boolean | false;
   popular?: boolean | false;
   averageEvaluation: number;
-  city: city[];
+  city: City[];
 }
+
+//////////////////
+
+export type responseLocation = Package;

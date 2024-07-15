@@ -16,55 +16,19 @@ import gear from "../assets/image/gear.png"
 import eye from "../assets/image/eye.png"
 
 import { infoAbout } from "../interfaces/infoAbout.interface";
-import { responseLocation } from "../interfaces/responseLocal.interface";
+import { City, responseLocation } from "../interfaces/responseLocal.interface";
 import { LocalCard } from "../components/cards/localCard";
+import { settings } from "../settings/carouselPrimary.settings";
 
 export default function Home() {
 
-    const [indexSlide, setIndexSlide] = useState(0)
+    const indexSlide = 0
 
-    const settings = {
-        dots: false,
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 3,
-        variableWidth: true,
-        swipeToSlide: true,
-        afterChange: function (index: number) {
-            setIndexSlide(index)
-        },
-        swipe: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: true,
-                }
-            }
-        ]
-    };
-
-    const [locationsPopular, setLocations] = useState<Array<responseLocation>>([])
+    const [locationsPopular, setLocations] = useState<Array<City>>([])
     const [packageTravel, setPackageTravel] = useState<Array<responseLocation>>([])
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_URL_SERVER}/destinationsPopupar`)
+        fetch(`${import.meta.env.VITE_URL_SERVER}/top-cities`)
             .then(res => res.json())
             .then(res => setLocations(res))
 
@@ -192,12 +156,26 @@ export default function Home() {
                     <div
                         className="w-full relative overflow-hidden md:overflow-visible"
                     >
-                        {/* <CarouselCardsLocations
-                            locations={locationsPopular}    
-                            isPrimary
+                        <CarouselCardsLocations
+                            isNavigation
                             settings={settings}
                             indexSlide={indexSlide}
-                        /> */}
+                        >
+                            {
+                                locationsPopular.map((popular, i) => {
+                                    return (
+                                        <LocalCard
+                                            key={i}
+                                            img={popular.background}
+                                            title={popular.name}
+                                            subtitle={popular.country.name}
+                                            className="h-44 lg:h-auto"
+                                            id={popular.id_city}
+                                        />
+                                    )
+                                })
+                            }
+                        </CarouselCardsLocations>
                     </div>
 
                 </section>
@@ -234,8 +212,8 @@ export default function Home() {
                                                 <LocalCard
                                                     key={i}
                                                     img={city.background}
-                                                    local={city.name}
-                                                    country={city.country}
+                                                    title={city.name}
+                                                    subtitle={city.country}
                                                     className="h-44 lg:h-auto"
                                                     id={city.name}
                                                 >

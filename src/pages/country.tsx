@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CarouselCardsLocations, CarouselCountrys } from "../components/slickCarousel/carousel";
 import InfoCountry from "../components/infoCountry";
 import { LocalCard } from "../components/cards/localCard";
+import { settings } from "../settings/carouselCountry.settings";
 
 interface country {
     nameFlag: string
@@ -14,25 +15,6 @@ interface country {
     weather: string
     city: Array<any>
 }
-
-const settings = {
-    dots: false,
-    infinite: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: true,
-    swipeToSlide: true,
-    swipe: true,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-            }
-        }
-    ]
-};
 
 export default function Country() {
     const [countrys, setCountrys] = useState<country[]>([])
@@ -151,7 +133,7 @@ export default function Country() {
                                                                 <LocalCard
                                                                     key={i}
                                                                     img={local.background}
-                                                                    local={local.name}
+                                                                    title={local.name}
                                                                     className="h-44 lg:h-auto"
                                                                     id={local.name}
                                                                 />
