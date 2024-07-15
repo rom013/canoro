@@ -17,7 +17,7 @@ function Network() {
     const [networks, setNetworks] = useState<networkProps[]>([])
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_URL_SERVER}/our-networks`)
+        fetch(`${import.meta.env.VITE_URL_SERVER}/network`)
             .then(res => res.json())
             .then(res => setNetworks(res))
     }, [])

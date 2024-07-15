@@ -1,17 +1,18 @@
 import Header from "../components/header/header";
 import { useEffect, useState } from "react";
 import { CarouselCardsLocations, CarouselCountrys } from "../components/slickCarousel/carousel";
-import { Money, Thermometer, User } from "@phosphor-icons/react";
+import InfoCountry from "../components/infoCountry";
+import { LocalCard } from "../components/cards/localCard";
 
 interface country {
     nameFlag: string
-    country: string
-    id: string
+    name: string
+    id_country: string
     background?: string
     money: string
     population: string
-    climate: string
-    destiny: Array<any>
+    weather: string
+    city: Array<any>
 }
 
 const settings = {
@@ -41,9 +42,10 @@ export default function Country() {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`${import.meta.env.VITE_URL_SERVER}/country`)
+        fetch(`${import.meta.env.VITE_URL_SERVER}/countries`)
             .then(res => res.json())
             .then(res => {
+                console.log(res);
                 setCountrys(res)
             })
             .finally(() => {
@@ -57,7 +59,7 @@ export default function Country() {
         new Promise((resolve, reject) => {
             let selected = []
             selected = countrys.filter((a) => {
-                return a.id === countrySelectedId
+                return a.id_country === countrySelectedId
             })
 
             if (selected.length === 0) {
@@ -78,7 +80,7 @@ export default function Country() {
         <>
             <Header />
             <main
-                className={`h-svh ${countrySelected?.background ?? "bg-zinc-500"} flex bg-cover bg-fixed`}
+                className={`h-svh flex bg-cover bg-fixed`}
                 style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.7)), url(${countrySelected?.background})` }}
             >
                 <div
@@ -108,7 +110,7 @@ export default function Country() {
                                         className={`text-white font-sora font-extrabold uppercase text-5xl md:text-7xl`}
                                     >
                                         {
-                                            countrySelected?.country
+                                            countrySelected?.name
                                         }
                                     </h2>
                                     <div className="text-zinc-200 flex flex-col gap-4">
@@ -117,7 +119,7 @@ export default function Country() {
                                             icon="User"
                                         />
                                         <InfoCountry
-                                            dataInfo={countrySelected.climate}
+                                            dataInfo={countrySelected.weather}
                                             icon="Thermometer"
                                         />
                                         <InfoCountry
@@ -126,59 +128,46 @@ export default function Country() {
                                         />
                                     </div>
                                 </div>
-
-                                <div
-                                    className="gap-10 flex flex-col self-start lg:self-end lg:-translate-x-10 lg:mb-10 mb-0 py-10 lg:py-0 absolute lg:relative left-0 bottom-0 w-screen lg:w-auto bg-white/20 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-0"
-                                >
-                                    <h3
-                                        className="md:max-w-80 md:w-full border-b-2 border-white font-lato text-white text-2xl font-bold uppercase mx-8 lg:mx-0"
-                                    >
-                                        top destinos
-                                    </h3>
-                                    <div
-                                        className="overflow-hidden lg:overflow-visible"
-                                    >
-                                        <CarouselCardsLocations
-                                            locations={countrySelected.destiny}
-                                            settings={settings}
-                                            isPrimary={false}
-                                        />
-                                    </div>
-                                </div>
+                                {
+                                    countrySelected.city.length > 0 && (
+                                        <div
+                                            className="gap-10 flex flex-col self-start lg:self-end lg:-translate-x-10 lg:mb-10 mb-0 py-10 lg:py-0 absolute lg:relative left-0 bottom-0 w-screen lg:w-auto bg-white/20 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-0"
+                                        >
+                                            <h3
+                                                className="md:max-w-80 md:w-full border-b-2 border-white font-lato text-white text-2xl font-bold uppercase mx-8 lg:mx-0"
+                                            >
+                                                top destinos
+                                            </h3>
+                                            <div
+                                                className="overflow-hidden lg:overflow-visible"
+                                            >
+                                                <CarouselCardsLocations
+                                                    settings={settings}
+                                                    isNavigation={false}
+                                                >
+                                                    {
+                                                        countrySelected.city.map((local, i) => {
+                                                            return (
+                                                                <LocalCard
+                                                                    key={i}
+                                                                    img={local.background}
+                                                                    local={local.name}
+                                                                    className="h-44 lg:h-auto"
+                                                                    id={local.name}
+                                                                />
+                                                            )
+                                                        })
+                                                    }
+                                                </CarouselCardsLocations>
+                                            </div>
+                                        </div>
+                                    )
+                                }
 
                             </section>
                         )
                 }
             </main>
         </>
-    )
-}
-
-interface InfoCountryProps {
-    icon: string
-    dataInfo: string
-}
-
-const iconsInfo: any = {
-    User,
-    Money,
-    Thermometer
-}
-
-function InfoCountry({ icon, dataInfo }: InfoCountryProps) {
-
-    const Icon = iconsInfo[icon]
-
-    return (
-        <div
-            className="flex md:gap-6 gap-2 items-center capitalize text-xl md:text-3xl"
-        >
-            {
-                <Icon />
-            }
-            <span className="text-sm md:text-xl">
-                {dataInfo}
-            </span>
-        </div>
     )
 }

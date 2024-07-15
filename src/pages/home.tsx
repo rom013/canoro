@@ -16,18 +16,8 @@ import gear from "../assets/image/gear.png"
 import eye from "../assets/image/eye.png"
 
 import { infoAbout } from "../interfaces/infoAbout.interface";
-
-interface responseLocation {
-    img: string
-    local: string
-    country: string
-    price: number
-    average: number
-    tag?: string
-    id: string
-}
-
-
+import { responseLocation } from "../interfaces/responseLocal.interface";
+import { LocalCard } from "../components/cards/localCard";
 
 export default function Home() {
 
@@ -78,9 +68,11 @@ export default function Home() {
             .then(res => res.json())
             .then(res => setLocations(res))
 
-        fetch(`${import.meta.env.VITE_URL_SERVER}/packageTravel`)
+        fetch(`${import.meta.env.VITE_URL_SERVER}/travel-pack/`)
             .then(res => res.json())
-            .then(res => setPackageTravel(res))
+            .then(res => {
+                setPackageTravel(res)
+            })
     }, [])
 
     const infosAbout: readonly infoAbout[] = [
@@ -200,12 +192,12 @@ export default function Home() {
                     <div
                         className="w-full relative overflow-hidden md:overflow-visible"
                     >
-                        <CarouselCardsLocations
-                            locations={locationsPopular}
+                        {/* <CarouselCardsLocations
+                            locations={locationsPopular}    
                             isPrimary
                             settings={settings}
                             indexSlide={indexSlide}
-                        />
+                        /> */}
                     </div>
 
                 </section>
@@ -230,11 +222,40 @@ export default function Home() {
                         className="w-full relative overflow-hidden md:overflow-visible"
                     >
                         <CarouselCardsLocations
-                            locations={packageTravel}
-                            isPrimary
+                            isNavigation
                             settings={settings}
                             indexSlide={indexSlide}
-                        />
+                        >
+                            {
+                                packageTravel.map((local) => {
+                                    return (
+                                        local.city.map((city, i) => {
+                                            return (
+                                                <LocalCard
+                                                    key={i}
+                                                    img={city.background}
+                                                    local={city.name}
+                                                    country={city.country}
+                                                    className="h-44 lg:h-auto"
+                                                    id={city.name}
+                                                >
+                                                    <LocalCard.LocalEvaluationAndPrices
+                                                        average={local.averageEvaluation}
+                                                        price={parseFloat(local.price)}
+                                                    />
+
+                                                    {/* {
+                                                            local.tag && <LocalCard.LocalTag
+                                                                description={local.tag}
+                                                            />
+                                                    }  */}
+                                                </LocalCard>
+                                            )
+                                        })
+                                    )
+                                })
+                            }
+                        </CarouselCardsLocations>
                     </div>
 
                 </section>

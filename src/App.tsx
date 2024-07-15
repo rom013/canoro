@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
 import Country from "./pages/country";
+import Local from "./pages/local";
 
 export default function App() {
 
@@ -15,6 +16,10 @@ export default function App() {
     {
       path: "/pais",
       element: <Country />
+    },
+    {
+      path: "/destino",
+      element: <Local />
     },
     {
       path: "*",

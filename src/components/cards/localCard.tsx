@@ -1,13 +1,15 @@
 import { Star } from "@phosphor-icons/react"
 import { ReactNode } from "react"
+import { useNavigate } from "react-router-dom"
 import { twMerge } from "tailwind-merge"
 
 interface localCardProps {
     children?: ReactNode
     img: string
     local: string
-    country?: string
+    country?: string | false
     className?: string
+    id: string
 }
 
 interface evaluationAndPricesProps {
@@ -19,11 +21,15 @@ interface localTagProps {
     description: string
 }
 
-function LocalCard({ children, img, local: title, country: subtitle, className }: localCardProps) {
+function LocalCard({ children, img, local: title, country: subtitle, className, id }: localCardProps) {
+
+    const navigation = useNavigate()
+
     return (
         <div
             className={twMerge("cursor-pointer flex flex-col gap-3 w-fit", className)}
             style={{ width: "276px" }}
+            onClick={() => navigation("/destino", { state: { id } })}
         >
             <section
                 className="relative h-80 w-64 rounded-lg overflow-hidden group"

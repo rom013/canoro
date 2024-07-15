@@ -1,92 +1,64 @@
 import Slider from "react-slick";
-import { LocalCard } from "../cards/localCard";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import { CaretCircleDown, CaretCircleUp, CaretLeft, CaretRight } from "@phosphor-icons/react";
 
-interface requestLocation {
-    img: string
-    local: string
-    country: string
-    price: number
-    average: number
-    tag?: string
-    id: string
-}
-interface requestCountrys {
-    nameFlag: string
-    country: string
-    id: string
+interface CarouselLocationProps {
+    settings: any;
+    isNavigation?: boolean;
+    indexSlide?: number;
+    children: ReactNode
 }
 
-interface carouselLocationProps {
-    locations: Array<requestLocation>
-    settings: any
-    isPrimary: boolean
-    indexSlide?: number | any
-}
-interface carouselCountryProps {
-    countrys: Array<requestCountrys>
-    countrySelected: (id_country: string) => void
-}
-
-export function CarouselCardsLocations({ locations, settings, isPrimary, indexSlide }: carouselLocationProps) {
+export function CarouselCardsLocations({ settings, isNavigation, indexSlide, children }: CarouselLocationProps) {
     const slider = useRef<any>(null)
-    const lengthLocations = locations.length
 
     return (
         <>
             <Slider
                 {...settings}
                 ref={slider}
-                className={!isPrimary && "flex w-full lg:max-w-3xl text-white"}
+                className={!isNavigation && "flex w-full lg:max-w-3xl text-white"}
             >
-                {
-                    locations.map((local) => {
-                        return (
-                            <LocalCard
-                                key={local.id}
-                                img={local.img}
-                                local={local.local}
-                                country={local.country}
-                                className="h-44 lg:h-auto"
-                            >
-                                <LocalCard.LocalEvaluationAndPrices
-                                    average={local.average}
-                                    price={local.price}
-                                />
-                                {
-                                    local.tag && <LocalCard.LocalTag
-                                        description={local.tag}
-                                    />
-                                }
-
-                            </LocalCard>
-                        )
-                    })
-                }
+                {children}
             </Slider>
             {
-                isPrimary && indexSlide >= 0 && (
-                    <>
-                        <button
-                            onClick={() => slider?.current?.slickPrev()}
-                            className="absolute hidden disabled:opacity-25 disabled:active:translate-y-0 disabled:hover:bg-blue-canoro sm:block top-1/3 -left-6 text-white p-2 bg-blue-canoro rounded hover:bg-blue-canoro-secundary active:translate-y-1 transition-all duration-150"
-                            disabled={indexSlide == 0}
-                        >
-                            <CaretLeft />
-                        </button>
-                        <button
-                            className="absolute hidden disabled:opacity-25 disabled:active:translate-y-0 disabled:hover:bg-blue-canoro sm:block top-1/3 -right-6 text-white p-2 bg-blue-canoro rounded hover:bg-blue-canoro-secundary active:translate-y-1 transition-all duration-150"
-                            onClick={() => slider?.current?.slickNext()}
-                            disabled={indexSlide + 1 == lengthLocations - 2}
-                        >
-                            <CaretRight />
-                        </button>
-                    </>
+                isNavigation && indexSlide !== undefined && (
+                    indexSlide >= 0 && (
+                        <>
+                            <button
+                                onClick={() => slider?.current?.slickPrev()}
+                                className="absolute hidden disabled:opacity-25 disabled:active:translate-y-0 disabled:hover:bg-blue-canoro sm:block top-1/3 -left-6 text-white p-2 bg-blue-canoro rounded hover:bg-blue-canoro-secundary active:translate-y-1 transition-all duration-150"
+                                disabled={indexSlide == 0}
+                            >
+                                <CaretLeft />
+                            </button>
+                            <button
+                                className="absolute hidden disabled:opacity-25 disabled:active:translate-y-0 disabled:hover:bg-blue-canoro sm:block top-1/3 -right-6 text-white p-2 bg-blue-canoro rounded hover:bg-blue-canoro-secundary active:translate-y-1 transition-all duration-150"
+                                onClick={() => slider?.current?.slickNext()}
+                            // disabled={indexSlide + 1 == lengthLocations - 2}
+                            >
+                                <CaretRight />
+                            </button>
+                        </>
+                    )
                 )
             }
         </>
     )
+}
+
+
+
+
+interface requestCountrys {
+    nameFlag: string
+    name: string
+    id_country: string
+}
+
+interface carouselCountryProps {
+    countrys: Array<requestCountrys>
+    countrySelected: (id_country: string) => void
 }
 
 export function CarouselCountrys({ countrys, countrySelected }: carouselCountryProps) {
@@ -102,7 +74,7 @@ export function CarouselCountrys({ countrys, countrySelected }: carouselCountryP
         nextArrow: <></>,
         prevArrow: <></>,
         afterChange: function (index: number) {
-            countrySelected(countrys[index].id);
+            countrySelected(countrys[index].id_country);
         }
     }
 
@@ -119,10 +91,10 @@ export function CarouselCountrys({ countrys, countrySelected }: carouselCountryP
                     countrys.map((country) => {
                         return (
                             <div
-                                key={country.id}
+                                key={country.id_country}
                                 className="min-w-8 my-8 cursor-pointer text-center transition-all -translate-y-20"
                                 onClick={() => {
-                                    countrySelected(country.id)
+                                    countrySelected(country.id_country)
                                 }}
                             >
                                 <div>
