@@ -135,7 +135,7 @@ export default function Country() {
                                                                     img={local.background}
                                                                     title={local.name}
                                                                     className="h-44 lg:h-auto"
-                                                                    id={local.name}
+                                                                    id={local.id_city}
                                                                 />
                                                             )
                                                         })
