@@ -29,11 +29,15 @@ export default function Home() {
 
     const [locationsPopular, setLocations] = useState<Array<City>>([])
     const [packageTravel, setPackageTravel] = useState<Array<responseLocation>>([])
+    const [isPedding, setIsPedding] = useState(false)
 
     useEffect(() => {
+        setIsPedding(true)
+
         fetch(`${import.meta.env.VITE_URL_SERVER}/top-cities`)
             .then(res => res.json())
             .then(res => setLocations(res))
+            .finally(() => setIsPedding(false))
 
         fetch(`${import.meta.env.VITE_URL_SERVER}/travel-pack/`)
             .then(res => res.json())
@@ -159,26 +163,33 @@ export default function Home() {
                     <div
                         className="w-full relative overflow-hidden md:overflow-visible"
                     >
-                        <CarouselCardsLocations
-                            isNavigation
-                            settings={settings}
-                            indexSlide={indexSlide}
-                        >
-                            {
-                                locationsPopular.map((popular, i) => {
-                                    return (
-                                        <LocalCard
-                                            key={i}
-                                            img={popular.background}
-                                            title={popular.name}
-                                            subtitle={popular.country.name}
-                                            className="h-44 lg:h-auto"
-                                            id={popular.id_city}
-                                        />
-                                    )
-                                })
-                            }
-                        </CarouselCardsLocations>
+                        {
+                            isPedding
+                                ? <section className="flex justify-center">
+                                    <div className="flipping" />
+                                </section>
+                                : <CarouselCardsLocations
+                                    isNavigation
+                                    settings={settings}
+                                    indexSlide={indexSlide}
+                                >
+                                    {
+                                        locationsPopular.map((popular, i) => {
+                                            return (
+                                                <LocalCard
+                                                    key={i}
+                                                    img={popular.background}
+                                                    title={popular.name}
+                                                    subtitle={popular.country.name}
+                                                    className="h-44 lg:h-auto"
+                                                    id={popular.id_city}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </CarouselCardsLocations>
+                        }
+
                     </div>
 
                 </section>
@@ -202,41 +213,48 @@ export default function Home() {
                     <div
                         className="w-full relative overflow-hidden md:overflow-visible"
                     >
-                        <CarouselCardsLocations
-                            isNavigation
-                            settings={settings}
-                            indexSlide={indexSlide}
-                        >
-                            {
-                                packageTravel.map((local) => {
-                                    return (
-                                        local.city.map((city, i) => {
+                        {
+                            isPedding
+                                ? <section className="flex justify-center">
+                                    <div className="flipping" />
+                                </section>
+                                : <CarouselCardsLocations
+                                    isNavigation
+                                    settings={settings}
+                                    indexSlide={indexSlide}
+                                >
+                                    {
+                                        packageTravel.map((local) => {
                                             return (
-                                                <LocalCard
-                                                    key={i}
-                                                    img={city.background}
-                                                    title={city.name}
-                                                    subtitle={city.country}
-                                                    className="h-44 lg:h-auto"
-                                                    id={city.id_city}
-                                                >
-                                                    <LocalCard.LocalEvaluationAndPrices
-                                                        average={local.averageEvaluation}
-                                                        price={parseFloat(local.price)}
-                                                    />
+                                                local.city.map((city, i) => {
+                                                    return (
+                                                        <LocalCard
+                                                            key={i}
+                                                            img={city.background}
+                                                            title={city.name}
+                                                            subtitle={city.country}
+                                                            className="h-44 lg:h-auto"
+                                                            id={city.id_city}
+                                                        >
+                                                            <LocalCard.LocalEvaluationAndPrices
+                                                                average={local.averageEvaluation}
+                                                                price={parseFloat(local.price)}
+                                                            />
 
-                                                    {/* {
+                                                            {/* {
                                                             local.tag && <LocalCard.LocalTag
                                                                 description={local.tag}
                                                             />
                                                     }  */}
-                                                </LocalCard>
+                                                        </LocalCard>
+                                                    )
+                                                })
                                             )
                                         })
-                                    )
-                                })
-                            }
-                        </CarouselCardsLocations>
+                                    }
+                                </CarouselCardsLocations>
+                        }
+
                     </div>
 
                 </section>
