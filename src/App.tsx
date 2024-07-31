@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
 import Country from "./pages/country";
 import Local from "./pages/local";
+import Travel from "./pages/travel";
 
 export default function App() {
 
@@ -20,6 +21,10 @@ export default function App() {
     {
       path: "/destino",
       element: <Local />
+    },
+    {
+      path: "/viagem",
+      element: <Travel />
     },
     {
       path: "*",

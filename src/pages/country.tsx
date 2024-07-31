@@ -4,6 +4,7 @@ import { CarouselCardsLocations, CarouselCountrys } from "../components/slickCar
 import InfoCountry from "../components/infoCountry";
 import { LocalCard } from "../components/cards/localCard";
 import { settings } from "../settings/carouselCountry.settings";
+import useTopToScreen from "../hook/useTopToScreen";
 
 interface country {
     nameFlag: string
@@ -17,6 +18,8 @@ interface country {
 }
 
 export default function Country() {
+    useTopToScreen()
+
     const [countrys, setCountrys] = useState<country[]>([])
     const [countrySelectedId, setCountrySelectedId] = useState("1")
     const [countrySelected, setCountrySelected] = useState<country>()

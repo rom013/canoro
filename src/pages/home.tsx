@@ -19,8 +19,11 @@ import { infoAbout } from "../interfaces/infoAbout.interface";
 import { City, responseLocation } from "../interfaces/responseLocal.interface";
 import { LocalCard } from "../components/cards/localCard";
 import { settings } from "../settings/carouselPrimary.settings";
+import useTopToScreen from "../hook/useTopToScreen";
 
 export default function Home() {
+
+    useTopToScreen()
 
     const indexSlide = 0
 
@@ -215,7 +218,7 @@ export default function Home() {
                                                     title={city.name}
                                                     subtitle={city.country}
                                                     className="h-44 lg:h-auto"
-                                                    id={city.name}
+                                                    id={city.id_city}
                                                 >
                                                     <LocalCard.LocalEvaluationAndPrices
                                                         average={local.averageEvaluation}

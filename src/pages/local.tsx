@@ -3,6 +3,7 @@ import Header from "../components/header/header";
 import { useEffect, useState } from "react";
 import InfoCountry from "../components/infoCountry";
 import Footer from "../components/footer";
+import useTopToScreen from "../hook/useTopToScreen";
 
 interface CityProps {
     backgroundBanner: string
@@ -19,6 +20,7 @@ interface CityProps {
 }
 
 export default function Local() {
+    useTopToScreen()
 
     const { state } = useLocation()
     const [local, setLocal] = useState<CityProps>()
