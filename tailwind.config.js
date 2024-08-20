@@ -13,7 +13,7 @@ export default {
         "barlow": "'Barlow Condensed', sans-serif",
       },
       backgroundImage: {
-        "amazon": "linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.3)), url(./amazon.png)"
+        "amazon": "linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.3)), url(/amazon.png)"
       }
     },
   },
